@@ -4,5 +4,5 @@
 	}
 
 	setInterval(checkDebugger,
-		50);
+		0);
 })();
