@@ -14,8 +14,7 @@
 			const videoElement = document.getElementById('videoPlayer');
 			if (videoElement && videoElement.src.startsWith('blob:')) {
 				URL.revokeObjectURL(videoElement.src);
-				videoElement.src = ""; // src değerini temizle
-				videoElement.load(); // Elementin yeniden yüklenmesini sağla
+				videoElement.remove();
 			}
 			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
