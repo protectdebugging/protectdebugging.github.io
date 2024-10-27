@@ -11,7 +11,7 @@
 		moreAnnoyingDebuggerStatements: 1,
 		//function
 		onDetectOpen: () => {
-			const videoElement = document.getElementById('videoPlayer');
+			/*const videoElement = document.getElementById('videoPlayer');
 			if (videoElement && videoElement.src.startsWith('blob:')) {
 				URL.revokeObjectURL(videoElement.src);
 				videoElement.remove();
@@ -20,7 +20,7 @@
 				cacheNames.forEach((cacheName) => {
 					caches.delete(cacheName);
 				});
-			});
+			});*/
 			window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
