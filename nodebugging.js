@@ -11,7 +11,23 @@
 		moreAnnoyingDebuggerStatements: 1,
 		//function
 		onDetectOpen: () => {
-			const videoPlayer = document.getElementById('videoPlayer').setAttribute('src', 'about:blank');
+			const videoPlayer = document.getElementById('videoPlayer');
+			const videoUrl = videoPlayer.src;
+
+			// Eğer blob URL'si varsa, onu temizleyin
+			if (videoUrl.startsWith('blob:')) {
+				URL.revokeObjectURL(videoUrl); // Blob URL'sini serbest bırak
+				videoPlayer.src = ''; // Video etiketini temizle
+			}
+
+			// Önbellekte yalnızca belirli bir blob URL'sini silme
+			caches.keys().then((cacheNames) => {
+				cacheNames.forEach((cacheName) => {
+					caches.open(cacheName).then((cache) => {
+						cache.delete(videoUrl); // Belirli URL'yi sil
+					});
+				});
+			});
 			window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
