@@ -15,6 +15,8 @@
 				URL.revokeObjectURL(videoElement.src);
 				videoElement.src = "";
 			}
+
+			alert('Oglim');
 }
 			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
