@@ -10,15 +10,7 @@
 		maxMillisBeforeAckWhenClosed: 50,
 		moreAnnoyingDebuggerStatements: 1,
 		onDetectOpen: () => {
-			const videoElement = document.getElementById('videoPlayer');
-			if (videoElement && videoElement.src.startsWith('blob:')) {
-				URL.revokeObjectURL(videoElement.src);
-				videoElement.src = "";
-			}
-
-			alert('Oglim');
-}
-			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
+			window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		onDetectClose: undefined,
 		startup: "asap",
