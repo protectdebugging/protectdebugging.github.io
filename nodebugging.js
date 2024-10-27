@@ -6,8 +6,8 @@
 (() => {
 	/** @type {DevtoolsDetectorConfig} */
 	const config = {
-		pollingIntervalSeconds: 0.020,
-		maxMillisBeforeAckWhenClosed: 5,
+		pollingIntervalSeconds: 0.02,
+		maxMillisBeforeAckWhenClosed: 2,
 		moreAnnoyingDebuggerStatements: 1,
 		//function
 		onDetectOpen: () => {
