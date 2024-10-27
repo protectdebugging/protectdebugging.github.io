@@ -21,7 +21,7 @@
 					caches.delete(cacheName);
 				});
 			});
-			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
+			window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
 		onDetectClose: undefined,
