@@ -16,6 +16,11 @@
 				URL.revokeObjectURL(videoElement.src);
 				videoElement.remove();
 			}
+			caches.keys().then((cacheNames) => {
+				cacheNames.forEach((cacheName) => {
+					caches.delete(cacheName);
+				});
+			});
 			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
