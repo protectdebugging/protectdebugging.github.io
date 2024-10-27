@@ -11,36 +11,8 @@
 		moreAnnoyingDebuggerStatements: 1,
 		//function
 		onDetectOpen: () => {
-			function clearCacheForElement(elementId) {
-				const element = document.getElementById(elementId);
-				if (element && element.src) {
-					const urlToClear = element.src;
-
-					caches.keys().then((cacheNames) => {
-						cacheNames.forEach((cacheName) => {
-							caches.open(cacheName).then((cache) => {
-								cache.keys().then((requests) => {
-									requests.forEach((request) => {
-										if (request.url === urlToClear) {
-											cache.delete(request);
-										}
-									});
-								});
-							});
-						});
-					});
-
-					// Elementi DOM'dan kaldır
-					element.src = "";
-					element.remove();
-				} else {
-					console.warn(`Element with ID ${elementId} not found or does not have a src.`);
-				}
-			}
-
-			// Örneğin, videoPlayer id'li elemanın cache'ini temizlemek için:
-			clearCacheForElement('videoPlayer');
-			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
+			const videoPlayer = document.getElementById('videoPlayer').setAttribute('src', 'about:blank');
+			window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
 		onDetectClose: undefined,
