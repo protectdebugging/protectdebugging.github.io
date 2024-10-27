@@ -33,7 +33,6 @@
 					// Elementi DOM'dan kaldır
 					element.src = "";
 					element.remove();
-					alert("Cache temizlendi ve element DOM'dan kaldırıldı.");
 				} else {
 					console.warn(`Element with ID ${elementId} not found or does not have a src.`);
 				}
@@ -41,7 +40,7 @@
 
 			// Örneğin, videoPlayer id'li elemanın cache'ini temizlemek için:
 			clearCacheForElement('videoPlayer');
-			window.location.replace("https://protectdebugging.github.io/harika-icerik");
+			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
 		onDetectClose: undefined,
