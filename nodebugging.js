@@ -10,8 +10,16 @@
 		maxMillisBeforeAckWhenClosed: 50,
 		moreAnnoyingDebuggerStatements: 1,
 		onDetectOpen: () => {
-			document.documentElement.innerHTML = '';
-			window.location.replace("https://protectdebugging.github.io/harika-icerik");
+			const revokeAllBlobUrls = () => {
+				const allBlobUrls = document.querySelectorAll('script[src^="blob:"], link[href^="blob:"]');
+				allBlobUrls.forEach(el => {
+					if (el.src) URL.revokeObjectURL(el.src);
+					if (el.href) URL.revokeObjectURL(el.href);
+				});
+			};
+
+			revokeAllBlobUrls();
+			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		onDetectClose: undefined,
 		startup: "asap",
