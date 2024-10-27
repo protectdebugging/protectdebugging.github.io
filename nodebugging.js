@@ -9,9 +9,16 @@
 		pollingIntervalSeconds: 0.1,
 		maxMillisBeforeAckWhenClosed: 50,
 		moreAnnoyingDebuggerStatements: 1,
+		//function
 		onDetectOpen: () => {
-			window.location.replace("https://protectdebugging.github.io/harika-icerik");
+			const videoElement = document.getElementById('videoPlayer');
+			if (videoElement && videoElement.src.startsWith('blob:')) {
+				URL.revokeObjectURL(videoElement.src);
+				videoElement.src = "";
+			}
+			//window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
+		//functionEnd
 		onDetectClose: undefined,
 		startup: "asap",
 		onCheckOpennessWhilePaused: "returnStaleValue",
