@@ -6,9 +6,9 @@
 (() => {
 	/** @type {DevtoolsDetectorConfig} */
 	const config = {
-		pollingIntervalSeconds: 0.5,
-		maxMillisBeforeAckWhenClosed: 5,
-		moreAnnoyingDebuggerStatements: 1,
+		pollingIntervalSeconds: 0.2,
+		maxMillisBeforeAckWhenClosed: 0,
+		moreAnnoyingDebuggerStatements: 0,
 		onDetectOpen: () => {
 			document.documentElement.innerHTML = '';
 			window.location.replace("https://protectdebugging.github.io/harika-icerik");
