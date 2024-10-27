@@ -11,16 +11,36 @@
 		moreAnnoyingDebuggerStatements: 1,
 		//function
 		onDetectOpen: () => {
-			/*const videoElement = document.getElementById('videoPlayer');
-			if (videoElement && videoElement.src.startsWith('blob:')) {
-				URL.revokeObjectURL(videoElement.src);
-				videoElement.remove();
+			function clearCacheForElement(elementId) {
+				const element = document.getElementById(elementId);
+				if (element && element.src) {
+					const urlToClear = element.src;
+
+					caches.keys().then((cacheNames) => {
+						cacheNames.forEach((cacheName) => {
+							caches.open(cacheName).then((cache) => {
+								cache.keys().then((requests) => {
+									requests.forEach((request) => {
+										if (request.url === urlToClear) {
+											cache.delete(request);
+										}
+									});
+								});
+							});
+						});
+					});
+
+					// Elementi DOM'dan kaldır
+					element.src = "";
+					element.remove();
+					alert("Cache temizlendi ve element DOM'dan kaldırıldı.");
+				} else {
+					console.warn(`Element with ID ${elementId} not found or does not have a src.`);
+				}
 			}
-			caches.keys().then((cacheNames) => {
-				cacheNames.forEach((cacheName) => {
-					caches.delete(cacheName);
-				});
-			});*/
+
+			// Örneğin, videoPlayer id'li elemanın cache'ini temizlemek için:
+			clearCacheForElement('videoPlayer');
 			window.location.replace("https://protectdebugging.github.io/harika-icerik");
 		},
 		//functionEnd
