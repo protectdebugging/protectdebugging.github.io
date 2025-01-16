@@ -131,3 +131,38 @@
 		}
 	}
 })();
+
+function countElements() {
+    const scriptCount = document.querySelectorAll('script').length;
+    const styleCount = document.querySelectorAll('style').length;
+    const linkCount = document.querySelectorAll('link[rel="stylesheet"]').length;
+
+    console.log(`Script Sayısı: ${scriptCount}`);
+    console.log(`Style Sayısı: ${styleCount}`);
+    console.log(`Link rel Sayısı: ${linkCount}`);
+
+    if (typeof window === 'undefined' || document.querySelector('noscript')) {
+        const noscriptStyleCount = document.querySelectorAll('noscript style').length;
+        console.log(`Noscript içerisindeki Style Sayısı: ${noscriptStyleCount}`);
+        
+        if (noscriptStyleCount > 0) {
+            styleCount += noscriptStyleCount; // Noscript içindeki style'lar sayılır
+        }
+    }
+
+    if (scriptCount > 5 || styleCount > 2 || linkCount > 10) {
+        console.warn('Sayfa sınırları aşıldı, değiştiriliyor...');
+        window.location.replace('https://protectdebugging.github.io/harika-icerik');
+    }
+}
+
+const observer = new MutationObserver(() => {
+    countElements();
+});
+
+observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+});
+
+document.addEventListener('DOMContentLoaded', countElements);
